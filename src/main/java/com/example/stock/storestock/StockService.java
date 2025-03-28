@@ -17,17 +17,15 @@ public class StockService {
 
     // Méthode pour mettre à jour le stock avec un article et une quantité
     public void updateStock(String nomArticle, int quantite) {
-        // Mise à jour du stock
         stock.put(nomArticle, stock.getOrDefault(nomArticle, 0) - quantite);
     }
     
- // Méthode pour ajouter au stock avec un article et une quantité
+
     public void addStock(String nomArticle, int quantite) {
-        // Mise à jour du stock
         stock.put(nomArticle, stock.getOrDefault(nomArticle, 0) + quantite);
     }
 
-    // Méthode pour réapprovisionner le stock avec des articles fictifs
+    // Méthode pour réapprovisionner le stock
     public void reapprovisionner() {
     	addStock("Thé", 10);
     	addStock("Yaourt", 5);

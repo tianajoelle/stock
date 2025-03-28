@@ -13,7 +13,6 @@ public class StockController {
 
     private final StockService stockService;
 
-    // Injection du service StockService dans le contrôleur
     public StockController(StockService stockService) {
         this.stockService = stockService;
     }

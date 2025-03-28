@@ -17,9 +17,8 @@ public class KafkaConsumer {
     private final static Logger LOGGER = LoggerFactory.getLogger(KafkaConsumer.class);
 
     private final StockService stockService;
-    private final ObjectMapper objectMapper; // Jackson ObjectMapper
+    private final ObjectMapper objectMapper;
 
-    // Injection du service de stock et du ObjectMapper dans le consumer
     public KafkaConsumer(StockService stockService, ObjectMapper objectMapper) {
         this.stockService = stockService;
         this.objectMapper = objectMapper;
@@ -30,7 +29,6 @@ public class KafkaConsumer {
         LOGGER.info("Consumed message: {}", record.value());
 
         try {
-            // Désérialiser le message JSON en un objet JsonNode
             JsonNode articleNode = objectMapper.readTree(record.value());
 
             // Extraire le nom et la quantité de l'article depuis le JSON
